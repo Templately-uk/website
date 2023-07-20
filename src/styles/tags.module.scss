@@ -1,0 +1,15 @@
+.tagInput input {
+	@apply outline-none p-2 border-2 border-black w-full text-sm appearance-none focus:outline-none;
+}
+
+.tagInput {
+	@apply mt-1 appearance-none focus:outline-none text-sm;
+}
+
+.tag {
+	@apply px-2 py-1 border-2 border-black mr-1 text-sm shadow-[-2px_2px_0_0_#000] relative inline-block mb-1;
+}
+
+.suggestions {
+	@apply border-black border-2 mt-1 px-2 py-1;
+}

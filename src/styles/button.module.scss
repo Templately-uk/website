@@ -1,0 +1,55 @@
+$border-width: 2px;
+$border-color: #000;
+$shadow-color: #fff;
+$depth: 8px;
+
+.button {
+	box-sizing: border-box;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', sans-serif;
+	background-color: black;
+	color: white;
+	border: $border-width solid $border-color;
+	padding: 0.5rem 2rem;
+	display: inline-block;
+	position: relative;
+	text-align: center;
+	width: 80%;
+
+	&::before,
+	&::after {
+		background: $shadow-color;
+		box-sizing: border-box;
+		border: $border-width solid $border-color;
+		display: block;
+		content: '';
+		position: absolute;
+	}
+
+	&::before {
+		border-top-width: $border-width - 1;
+		border-bottom-width: $border-width + 1;
+		border-right: 0;
+
+		height: calc(100% + #{($border-width * 2)});
+		width: $depth;
+
+		left: #{($depth + $border-width) * -1};
+		top: #{(($depth / 2) + $border-width) * -1};
+
+		transform: skewY(45deg);
+	}
+
+	&::after {
+		border-left-width: $border-width - 1;
+		border-right-width: $border-width + 1;
+		border-bottom: 0;
+
+		left: #{(($depth / 2) + $border-width) * -1};
+		top: #{($depth + $border-width) * -1};
+
+		height: $depth;
+		width: calc(100% + #{$border-width * 2});
+
+		transform: skewX(45deg);
+	}
+}
