@@ -1,10 +1,10 @@
-import { getAuthAxios } from '@/lib/axios';
+import { getAPIAxios } from '@/lib/axios';
 import { toast } from 'react-hot-toast';
 
 export const useRemoveComment = () => {
 	const onSubmit = async (commentId: number) => {
 		try {
-			const axios = await getAuthAxios();
+			const axios = await getAPIAxios();
 			const result = await axios.delete(`/comment/${commentId}`);
 			if (result.status === 200) {
 				toast.success(`Comment removed`, {

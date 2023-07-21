@@ -1,4 +1,4 @@
-import { getAuthAxios, getAxios } from '@/lib/axios';
+import { getAPIAxios, getAxios } from '@/lib/axios';
 import { useQuery } from 'react-query';
 
 export interface Response {
@@ -30,7 +30,7 @@ export const useFetchComments = (templateRoute: string, auth = false) => {
 const fetchComments = async (templateRoute: string, auth = false): Promise<Response> => {
 	// If authenticated then use the proxy route
 	let axios = await getAxios();
-	if (auth) axios = await getAuthAxios();
+	if (auth) axios = await getAPIAxios();
 
 	const fetch = await axios.get(`/comments/${templateRoute}`);
 	return {

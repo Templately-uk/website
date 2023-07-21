@@ -1,13 +1,13 @@
 import Publish from '@/components/Publish';
-import { getSession } from 'next-auth/react';
 import { GetServerSidePropsContext } from 'next';
+import { getAuth, buildClerkProps } from '@clerk/nextjs/server';
 
 /**
  * Only allowed auth'd sessions onto Editor
  */
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-	const session = await getSession(context);
-	if (!session) {
+	const { userId } = getAuth(context.req);
+	if (!userId) {
 		return {
 			redirect: {
 				destination: '/',
@@ -16,7 +16,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 		};
 	}
 	return {
-		props: { session },
+		props: { ...buildClerkProps(context.req) },
 	};
 }
 

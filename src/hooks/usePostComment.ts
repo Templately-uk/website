@@ -1,4 +1,4 @@
-import { getAuthAxios } from '@/lib/axios';
+import { getAPIAxios } from '@/lib/axios';
 import { useState } from 'react';
 import { toast } from 'react-hot-toast';
 
@@ -50,7 +50,7 @@ export const usePostComment = () => {
 			};
 
 			// Send POST request
-			const axios = await getAuthAxios();
+			const axios = await getAPIAxios();
 			const result = await axios.post('/comment', JSON.stringify(body));
 
 			if (result.status === 200) {
