@@ -1,6 +1,6 @@
 import { getAuth } from '@clerk/nextjs/server';
-import httpProxy from 'http-proxy';
 import dotenv from 'dotenv';
+import httpProxy from 'http-proxy';
 
 dotenv.config(); // Load environment variables from.env file
 
@@ -15,6 +15,12 @@ if (!(API_URL && API_SECRET)) {
 	console.log('API_URL:', API_URL);
 	console.log('API_SECRET:', API_SECRET);
 }
+
+export const config = {
+	api: {
+		bodyParser: false,
+	},
+};
 
 const proxy = httpProxy.createProxyServer();
 
