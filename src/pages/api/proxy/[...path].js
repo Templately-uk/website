@@ -4,7 +4,9 @@ import dotenv from 'dotenv';
 
 dotenv.config(); // Load environment variables from.env file
 
+// eslint-disable-next-line no-undef
 const API_URL = process.env.API_URL; // The actual URL of your API
+// eslint-disable-next-line no-undef
 const API_SECRET = process.env.API_SECRET; // The actual URL of your API
 
 if (!(API_URL && API_SECRET)) {
