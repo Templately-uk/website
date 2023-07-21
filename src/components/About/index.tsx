@@ -18,7 +18,7 @@ const About = () => {
 						We house a rich library of templates, each searchable and designed for a range of email purposes.
 						Contributed by our dedicated user community, these templates form the heart of our service. Our service is
 						kept free to use through the use of subtle, unobtrusive ads. We strive to maintain an ad experience that
-						respects your work process and doesn't disrupt your focus.
+						respects your work process and doesn&apos;t disrupt your focus.
 					</div>
 				</section>
 				<section className="mt-12">

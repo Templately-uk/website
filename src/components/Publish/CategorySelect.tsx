@@ -42,6 +42,7 @@ const Select: React.FC<{ checked: boolean; value: string; description: string }>
 	description,
 }) => {
 	const [hover, setHover] = useState(false);
+	// eslint-disable-next-line no-undef
 	const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
 	const debounceHover = (isHovered: boolean) => {

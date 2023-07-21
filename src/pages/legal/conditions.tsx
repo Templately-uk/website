@@ -38,7 +38,7 @@ const TermsAndConditions = () => {
 					<h2>Disclaimer of Warranties</h2>
 					<p>
 						You understand and agree that your use of the Site is at your own risk and that the services are provided
-						"As Is" and "As Available".
+						&apos;As Is&apos; and &apos;As Available&apos;.
 					</p>
 
 					<h2>Limitation of Liability</h2>
@@ -58,7 +58,7 @@ const TermsAndConditions = () => {
 					<h2>Changes</h2>
 					<p>
 						We reserve the right, at our sole discretion, to modify or replace these Terms at any time. If a revision is
-						material we will try to provide at least 30 days' notice prior to any new terms taking effect.
+						material we will try to provide at least 30 days&apos; notice prior to any new terms taking effect.
 					</p>
 
 					<h2>Contact Us</h2>

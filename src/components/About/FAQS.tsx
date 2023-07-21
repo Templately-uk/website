@@ -3,8 +3,8 @@ export const questions = [
 		question: 'How can I use Templately.co.uk?',
 		answer: (
 			<>
-				Explore Templately.co.uk using our search bar or by selecting 'Search' from the navigation menu at the top of
-				the homepage.
+				Explore Templately.co.uk using our search bar or by selecting &apos;Search&apos; from the navigation menu at the
+				top of the homepage.
 			</>
 		),
 	},
@@ -21,8 +21,8 @@ export const questions = [
 		question: 'How can I add my own template?',
 		answer: (
 			<>
-				Once you've logged into Templately, click 'Add Template' in the dropdown menu located at the top right corner of
-				the page.
+				Once you&apos;ve logged into Templately, click &apos;Add Template&apos; in the dropdown menu located at the top
+				right corner of the page.
 			</>
 		),
 	},
@@ -30,8 +30,8 @@ export const questions = [
 		question: 'How do I delete my template?',
 		answer: (
 			<>
-				If you need to delete a template you've contributed, select 'My Account' from the dropdown menu at the top
-				right. From there, you can click the delete button next to the template you wish to remove.
+				If you need to delete a template you&apos;ve contributed, select &apos;My Account&apos; from the dropdown menu
+				at the top right. From there, you can click the delete button next to the template you wish to remove.
 			</>
 		),
 	},
@@ -54,7 +54,7 @@ export const questions = [
 		question: 'How can I contribute to open source?',
 		answer: (
 			<>
-				Templately appreciates and encourages community contributions. If you're interested in contributing to our
+				Templately appreciates and encourages community contributions. If you&apos;re interested in contributing to our
 				website, please visit our{' '}
 				<a href="todo" className="underline">
 					GitHub repository

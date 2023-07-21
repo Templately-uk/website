@@ -5,6 +5,7 @@ interface Props extends ComponentProps<'textarea'> {
 	characterLength?: number;
 }
 
+// eslint-disable-next-line react/display-name
 export const TextArea = forwardRef<HTMLTextAreaElement, Props>(({ label, characterLength, ...props }, ref) => {
 	return (
 		<label>

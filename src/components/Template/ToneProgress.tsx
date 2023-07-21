@@ -10,7 +10,7 @@ interface Props {
 	toneProgress: ToneProgress[];
 }
 
-const ToneProgress: React.FC<Props> = ({ toneProgress }) => {
+const ToneProgressComponent: React.FC<Props> = ({ toneProgress }) => {
 	return (
 		<div className="">
 			{toneProgress.map((_, index) => (
@@ -59,4 +59,4 @@ const ToneProgress: React.FC<Props> = ({ toneProgress }) => {
 	);
 };
 
-export default ToneProgress;
+export default ToneProgressComponent;

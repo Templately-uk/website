@@ -19,6 +19,7 @@ if (!(API_URL && API_SECRET)) {
 const proxy = httpProxy.createProxyServer();
 
 export default async function handler(req, res) {
+	// eslint-disable-next-line no-undef
 	return new Promise((resolve, reject) => {
 		const { userId } = getAuth(req);
 
