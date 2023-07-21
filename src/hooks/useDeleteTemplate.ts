@@ -1,10 +1,10 @@
-import { getAuthAxios } from '@/lib/axios';
+import { getAPIAxios } from '@/lib/axios';
 import { toast } from 'react-hot-toast';
 
 export const useDeleteTemplate = () => {
 	const onSubmit = async (templateId: number) => {
 		try {
-			const axios = await getAuthAxios();
+			const axios = await getAPIAxios();
 			const result = await axios.delete(`/user/template/${templateId}`);
 			if (result.status === 200) {
 				toast.success(`Template removed`, {

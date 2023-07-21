@@ -20,6 +20,6 @@
 		},
 		"typeRoots": ["node_modules/@types", "types"]
 	},
-	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+	"include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/pages/api/proxy/[...path].js"],
 	"exclude": ["node_modules"]
 }

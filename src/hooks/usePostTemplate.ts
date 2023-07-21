@@ -1,4 +1,4 @@
-import { getAuthAxios } from '@/lib/axios';
+import { getAPIAxios } from '@/lib/axios';
 import { toast } from 'react-hot-toast';
 
 interface TemplateData {
@@ -23,8 +23,8 @@ export const usePostTemplate = () => {
 			};
 
 			// Send POST request
-			const axios = await getAuthAxios();
-			const result = await axios.post('/publish', JSON.stringify(body));
+			const axios = await getAPIAxios();
+			const result = await axios.post('/publish-template', JSON.stringify(body));
 
 			if (result.status === 200) {
 				const route = result.data.route;

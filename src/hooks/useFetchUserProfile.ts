@@ -1,4 +1,4 @@
-import { getAuthAxios } from '@/lib/axios';
+import { getAPIAxios } from '@/lib/axios';
 import { useQuery } from 'react-query';
 
 interface TemplateResponse {
@@ -35,7 +35,7 @@ export const useFetchUserProfile = () => {
 };
 
 const fetchUserProfile = async (): Promise<Response> => {
-	const axios = await getAuthAxios();
+	const axios = await getAPIAxios();
 	const fetch = await axios.get(`/user`);
 
 	return {
