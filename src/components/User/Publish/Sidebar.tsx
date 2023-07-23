@@ -1,6 +1,6 @@
 import { FaMagic } from 'react-icons/fa';
 import { FaTable } from 'react-icons/fa6';
-import FieldError from '../ui/FieldError';
+import FieldError from '../../ui/FieldError';
 import CategorySelect from './CategorySelect';
 import Tags from './Tags';
 

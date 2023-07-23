@@ -1,21 +1,21 @@
-import Container from '../ui/layouts/Container';
-import Layout from '../ui/layouts/Layout';
-import dynamic from 'next/dynamic';
-import { useState } from 'react';
-import { Button } from '../ui/Button';
-import { Input } from '../ui/Input';
-import { TextArea } from '../ui/TextArea';
-import Sidebar from './Sidebar';
-import FieldError from '../ui/FieldError';
-import PageTitle from '../ui/PageTitle';
-import SectionTitle from '../ui/SectionTitle';
 import { usePostTemplate } from '@/hooks/usePostTemplate';
-import GoBackButton from '../ui/GoBackButton';
+import Filter from 'bad-words';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { FiLoader } from 'react-icons/fi';
-import { useRouter } from 'next/router';
-import Filter from 'bad-words';
 import { TiTick } from 'react-icons/ti';
+import { Button } from '../../ui/Button';
+import FieldError from '../../ui/FieldError';
+import GoBackButton from '../../ui/GoBackButton';
+import { Input } from '../../ui/Input';
+import PageTitle from '../../ui/PageTitle';
+import SectionTitle from '../../ui/SectionTitle';
+import { TextArea } from '../../ui/TextArea';
+import Container from '../../ui/layouts/Container';
+import Layout from '../../ui/layouts/Layout';
+import Sidebar from './Sidebar';
 
 const TemplateEditor = dynamic(() => import('./TemplateEditor'), {
 	ssr: false,

@@ -1,6 +1,6 @@
-import Publish from '@/components/Publish';
+import Publish from '@/components/User/Publish';
+import { buildClerkProps, getAuth } from '@clerk/nextjs/server';
 import { GetServerSidePropsContext } from 'next';
-import { getAuth, buildClerkProps } from '@clerk/nextjs/server';
 
 /**
  * Only allowed auth'd sessions onto Editor
