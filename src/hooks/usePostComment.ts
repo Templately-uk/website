@@ -4,7 +4,7 @@ import { toast } from 'react-hot-toast';
 
 interface CommentData {
 	route: string;
-	content: string;
+	comment: string;
 }
 
 interface FormError {
@@ -15,11 +15,11 @@ interface FormError {
 export const usePostComment = () => {
 	const [errors, setErrors] = useState<FormError[]>([]);
 
-	const validate = ({ content }: CommentData): boolean => {
+	const validate = ({ comment }: CommentData): boolean => {
 		let isValid = true;
 		const errors: FormError[] = [];
 
-		if (content.length <= 16) {
+		if (comment.length <= 16) {
 			errors.push({ field: 'title', message: 'Comment required to be longer than 16 characters' });
 			isValid = false;
 		}
@@ -43,10 +43,10 @@ export const usePostComment = () => {
 			}
 
 			// Prepare body
-			const { route, content } = data;
+			const { route, comment } = data;
 			const body = {
 				route,
-				content,
+				comment,
 			};
 
 			// Send POST request

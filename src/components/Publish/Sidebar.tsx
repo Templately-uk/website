@@ -1,8 +1,8 @@
-import { FaTable } from 'react-icons/fa6';
-import CategorySelect from './CategorySelect';
 import { FaMagic } from 'react-icons/fa';
-import Tags from './Tags';
+import { FaTable } from 'react-icons/fa6';
 import FieldError from '../ui/FieldError';
+import CategorySelect from './CategorySelect';
+import Tags from './Tags';
 
 interface Props {
 	register: any;

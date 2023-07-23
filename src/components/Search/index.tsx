@@ -1,16 +1,16 @@
+import { useFetchMetrics } from '@/hooks/useFetchMetrics';
+import { useSearchTemplates } from '@/hooks/useFetchSearch';
+import { Categories } from '@/types/Category';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
+import { BsArrowRight } from 'react-icons/bs';
+import { FiLoader } from 'react-icons/fi';
 import Container from '../ui/layouts/Container';
 import Layout from '../ui/layouts/Layout';
-import { BsArrowRight } from 'react-icons/bs';
 import Search from './Search';
-import SearchTemplateCard from './SearchTemplateCard';
-import { useState } from 'react';
-import { useSearchTemplates } from '@/hooks/useFetchSearch';
-import Link from 'next/link';
-import { transformAiTones } from '@/utils/tonesUtils';
 import SearchPagination from './SearchPagination';
-import { useRouter } from 'next/router';
-import { FiLoader } from 'react-icons/fi';
-import { useFetchMetrics } from '@/hooks/useFetchMetrics';
+import SearchTemplateCard from './SearchTemplateCard';
 
 const sorts = [
 	{ name: 'Most recent', sort: 'createdAt', order: 'desc' },
@@ -30,7 +30,7 @@ const SearchComponent = ({ initialSearch }: Props) => {
 
 	// Search filters and sorting
 	const initialCategory = router.query.category as string;
-	const [categories, setCategories] = useState([initialCategory]);
+	const [categories, setCategories] = useState(initialCategory ? [initialCategory] : []);
 	const [tags] = useState('');
 	const [sort, setSort] = useState('createdAt');
 	const [order, setOrder] = useState('desc');
@@ -123,12 +123,12 @@ const SearchComponent = ({ initialSearch }: Props) => {
 								<div className="mt-2">
 									{metrics ? (
 										<>
-											{metrics.categories.map((_, index) => (
+											{Object.keys(Categories).map((_, index) => (
 												<div key={index} className="mb-3">
 													<div className="flex items-center gap-2">
 														<input
 															type="checkbox"
-															value={_.name}
+															value={String(_)}
 															className="w-6 h-6 border-2 border-black appearance-none accent-black focus:ring-0 checked:bg-black focus:bg-black"
 															onChange={(e) => {
 																if (e.target.checked) {
@@ -137,9 +137,9 @@ const SearchComponent = ({ initialSearch }: Props) => {
 																	setCategories((prev) => prev.filter((category) => category !== e.target.value));
 																}
 															}}
-															checked={categories.includes(_.name)}
+															checked={categories.includes(String(_))}
 														/>
-														<div className="capitalize">{_.name}</div>
+														<div className="capitalize">{String(_)}</div>
 													</div>
 												</div>
 											))}
@@ -161,17 +161,7 @@ const SearchComponent = ({ initialSearch }: Props) => {
 									<>
 										{templates.hits.map((template, index) => (
 											<Link href={`/templates/${template.route}`} key={index}>
-												<SearchTemplateCard
-													title={template.title}
-													category={template.category.name}
-													user={template.user}
-													votes={template.votes}
-													views={template.views}
-													createdAt={template.createdAt}
-													tags={template.tags.map((tag) => tag.name)}
-													aiTones={transformAiTones(template.aiTones)}
-													useCase={template.summary}
-												/>
+												<SearchTemplateCard template={template} />
 											</Link>
 										))}
 									</>

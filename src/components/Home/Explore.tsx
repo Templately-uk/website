@@ -1,9 +1,10 @@
-import { Button } from '../ui/Button';
-import { FaFacebookMessenger } from 'react-icons/fa6';
 import { useFetchMetrics } from '@/hooks/useFetchMetrics';
-import { FaBriefcase, FaUserCircle, FaBullhorn, FaGraduationCap, FaLightbulb, FaUserTie } from 'react-icons/fa';
+import { Categories } from '@/types/Category';
 import Link from 'next/link';
 import CountUp from 'react-countup';
+import { FaBriefcase, FaBullhorn, FaGraduationCap, FaLightbulb, FaUserCircle, FaUserTie } from 'react-icons/fa';
+import { FaFacebookMessenger } from 'react-icons/fa6';
+import { Button } from '../ui/Button';
 
 const Explore: React.FC = () => {
 	// Fetch the categories and counts templates submitted for categories
@@ -27,7 +28,12 @@ const Explore: React.FC = () => {
 					{metrics ? (
 						<>
 							{metrics.categories.map((category, index) => (
-								<ExploreCard desc={category.description} count={category.templates} name={category.name} key={index} />
+								<ExploreCard
+									desc={Categories[category.category]}
+									count={category.count}
+									name={category.category}
+									key={index}
+								/>
 							))}
 						</>
 					) : (

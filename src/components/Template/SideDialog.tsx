@@ -1,11 +1,11 @@
+import { Template } from '@/types/Template';
+import moment from 'moment';
+import Image from 'next/image';
 import { BsFillChatRightFill } from 'react-icons/bs';
 import CopyTemplateBtn from './CopyTemplateBtn';
-import moment from 'moment';
-import { Response as useFetchTemplate } from '@/hooks/useFetchTemplate';
-import Image from 'next/image';
 
 interface Props {
-	data?: useFetchTemplate;
+	data?: Template;
 }
 const SideDialog: React.FC<Props> = ({ data }) => {
 	const ready = data;
@@ -19,7 +19,7 @@ const SideDialog: React.FC<Props> = ({ data }) => {
 				</div>
 				<div className="mt-1 font-serif font-black text-center">
 					{ready ? (
-						<>{data.template.title}</>
+						<>{data.title}</>
 					) : (
 						<div className="flex justify-center">
 							<div className="w-[120px] mt-4 h-5 bg-black/10 animate-pulse"></div>
@@ -34,7 +34,7 @@ const SideDialog: React.FC<Props> = ({ data }) => {
 						<div className="font-serif font-bold">Template posted</div>
 						<div>
 							{ready ? (
-								<div>{moment(data.template.createdAt).format('DD MMMM, YYYY')}</div>
+								<div>{moment(data.createdAt).format('DD MMMM, YYYY')}</div>
 							) : (
 								<div className="w-[80px] h-6 bg-black/10 animate-pulse"></div>
 							)}
@@ -45,7 +45,7 @@ const SideDialog: React.FC<Props> = ({ data }) => {
 						<div className="flex mt-1">
 							{/* Label */}
 							{ready ? (
-								<div className="px-2 py-1 rounded-sm bg-primary">{data.template.category.name}</div>
+								<div className="px-2 py-1 rounded-sm bg-primary">{data.category}</div>
 							) : (
 								<div className="w-[80px] h-6 bg-black/10 animate-pulse"></div>
 							)}
@@ -60,12 +60,12 @@ const SideDialog: React.FC<Props> = ({ data }) => {
 										<Image
 											width={20}
 											height={20}
-											src={data.template.user.image}
+											src={data.user.image}
 											className="w-5 h-5 rounded-full"
 											alt={'Author avatar'}
 										/>
 									</div>
-									<div>{data.template.user.name}</div>
+									<div>{data.user.name}</div>
 								</>
 							) : (
 								<>
@@ -80,7 +80,7 @@ const SideDialog: React.FC<Props> = ({ data }) => {
 						<div className="flex flex-wrap mt-1 gap-x-1 gap-y-1">
 							{ready ? (
 								<>
-									{data.template.tags.map((_, key) => (
+									{data.tags.map((_, key) => (
 										<div className="px-2 py-1 rounded-sm bg-primary" key={key}>
 											{_.name}
 										</div>

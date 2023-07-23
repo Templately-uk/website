@@ -9,14 +9,14 @@ import Layout from '../ui/layouts/Layout';
 import { Tone, tones } from '@/types/Tone';
 
 // Importing components
-import ToneProgress from './ToneProgress';
 import Comments from './Comments/Comments';
 import SideDialog from './SideDialog';
+import ToneProgress from './ToneProgress';
 
 // Importing hooks
 import { useFetchTemplate } from '@/hooks/useFetchTemplate';
-import GoBackButton from '../ui/GoBackButton';
 import { FiLoader } from 'react-icons/fi';
+import GoBackButton from '../ui/GoBackButton';
 
 const PreviewTemplate = dynamic(() => import('./PreviewTemplate'), { ssr: false });
 
@@ -26,14 +26,14 @@ interface Props {
 const Template = ({ route }: Props) => {
 	const { data } = useFetchTemplate(route);
 
-	let useCase = data?.template.summary;
+	let useCase = data?.useCase;
 	if (useCase && !useCase.endsWith('.')) useCase += '.';
 	return (
 		<Layout
-			title={`Template: ${data?.template.title}`}
+			title={`Template: ${data?.title}`}
 			openGraph={{
-				title: `Template: ${data?.template.title}`,
-				description: `Template: ${data?.template.summary}`,
+				title: `Template: ${data?.title}`,
+				description: `Template: ${data?.useCase}`,
 				type: 'website',
 			}}
 		>
@@ -42,11 +42,11 @@ const Template = ({ route }: Props) => {
 					<div className="col-span-12 mt-20 sm:col-span-8">
 						<GoBackButton />
 						<div className="mt-6">
-							<TitleSection title={data?.template.title} />
+							<TitleSection title={data?.title} />
 							<UseCaseSection usecase={useCase} />
-							<TemplateSection template={data?.template.body} />
-							<AITonesSection aiTones={data?.template.aiTones} />
-							<CommentsSection route={data?.template.route} />
+							<TemplateSection template={data?.template} />
+							<AITonesSection aiTones={data?.aiTones} />
+							<CommentsSection route={data?.route} />
 						</div>
 					</div>
 					<div className="flex items-start justify-center col-span-12 sm:justify-end sm:col-span-4 mt-14">

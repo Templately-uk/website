@@ -16,7 +16,7 @@ const PostComment: React.FC<Props> = ({ route }) => {
 		evt.preventDefault();
 		const result = await onSubmit({
 			route,
-			content: comment,
+			comment,
 		});
 		if (result)
 			setTimeout(() => {

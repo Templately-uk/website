@@ -1,4 +1,5 @@
 import { getAPIAxios, getAxios } from '@/lib/axios';
+import { Comment } from '@/types/Comment';
 import { useQuery } from 'react-query';
 
 export interface Response {
@@ -6,13 +7,7 @@ export interface Response {
 }
 
 interface CommentResponse {
-	id: number;
-	content: string;
-	createdAt: string;
-	user: {
-		name: string;
-		image: string;
-	};
+	comment: Comment;
 	owner: boolean;
 }
 

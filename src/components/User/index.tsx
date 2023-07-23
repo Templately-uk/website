@@ -1,13 +1,13 @@
-import Container from '../ui/layouts/Container';
-import Layout from '../ui/layouts/Layout';
-import PageTitle from '../ui/PageTitle';
-import SectionTitle from '../ui/SectionTitle';
-import GoBackButton from '../ui/GoBackButton';
+import { useDeleteTemplate } from '@/hooks/useDeleteTemplate';
 import { useFetchUserProfile } from '@/hooks/useFetchUserProfile';
 import moment from 'moment';
-import { FiEye, FiTrash } from 'react-icons/fi';
 import { useRouter } from 'next/router';
-import { useDeleteTemplate } from '@/hooks/useDeleteTemplate';
+import { FiEye, FiTrash } from 'react-icons/fi';
+import GoBackButton from '../ui/GoBackButton';
+import PageTitle from '../ui/PageTitle';
+import SectionTitle from '../ui/SectionTitle';
+import Container from '../ui/layouts/Container';
+import Layout from '../ui/layouts/Layout';
 
 const User = () => {
 	const router = useRouter();
@@ -43,12 +43,12 @@ const User = () => {
 										<div className="flex items-center gap-2">
 											<div className="font-serif text-2xl font-black">{template.title}</div>
 											<div>•</div>
-											<div className="text-lg capitalize">{template.category.name}</div>
+											<div className="text-lg capitalize">{template.category}</div>
 										</div>
 									</div>
 									<div className="text-gray-600">{moment(template.createdAt).format('MMM YY')}</div>
 									<div className="mt-2 text-gray-600">
-										<div className="text-sm">{template.summary}</div>
+										<div className="text-sm">{template.useCase}</div>
 									</div>
 									<div className="flex items-center gap-2 mt-4">
 										{template.tags.map((tag, index) => (

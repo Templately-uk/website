@@ -1,30 +1,9 @@
 import { getAPIAxios } from '@/lib/axios';
+import { Template } from '@/types/Template';
 import { useQuery } from 'react-query';
 
-interface TemplateResponse {
-	id: number;
-	route: string;
-	title: string;
-	category: {
-		name: string;
-		id: number;
-	};
-	user: {
-		name: string;
-		image: string;
-	};
-	tags: {
-		name: string;
-	}[];
-	aiTones: string;
-	views: number;
-	votes: number;
-	createdAt: Date;
-	updatedAt: Date;
-	summary: string;
-}
 export interface Response {
-	templates: TemplateResponse[];
+	templates: Template[];
 }
 
 export const useFetchUserProfile = () => {

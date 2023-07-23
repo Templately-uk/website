@@ -7,11 +7,8 @@ export interface Response {
 }
 
 interface CategoryResponse {
-	id: number;
-	name: string;
-	description: string;
-	createdAt: Date;
-	templates: number;
+	category: string;
+	count: number;
 }
 
 export const useFetchMetrics = () => {

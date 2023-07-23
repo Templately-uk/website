@@ -1,31 +1,9 @@
 import { getAxios } from '@/lib/axios';
+import { Template } from '@/types/Template';
 import { useQuery } from 'react-query';
 
-interface TemplateResponse {
-	id: number;
-	route: string;
-	title: string;
-	category: {
-		name: string;
-		id: number;
-	};
-	user: {
-		name: string;
-		image: string;
-	};
-	tags: {
-		name: string;
-	}[];
-	aiTones: string;
-	views: number;
-	votes: number;
-	createdAt: Date;
-	updatedAt: Date;
-	summary: string;
-}
-
 interface Response {
-	hits: TemplateResponse[];
+	hits: Template[];
 	totalHits: number;
 	totalPages: number;
 	currentPage: number;
@@ -41,6 +19,7 @@ const fetchSearchTemplates = async (
 	sort: string,
 	order: string,
 ): Promise<Response> => {
+	console.log(categories);
 	const axios = await getAxios();
 	const fetch = await axios.get(`/search/${terms}`, {
 		params: {
