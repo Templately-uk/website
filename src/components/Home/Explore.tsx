@@ -27,11 +27,11 @@ const Explore: React.FC = () => {
 				<div className="grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6">
 					{metrics ? (
 						<>
-							{metrics.categories.map((category, index) => (
+							{Object.keys(Categories).map((category, index) => (
 								<ExploreCard
-									desc={Categories[category.category]}
-									count={category.count}
-									name={category.category}
+									desc={Categories[category]}
+									count={metrics.categories[category]}
+									name={category}
 									key={index}
 								/>
 							))}
