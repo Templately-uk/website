@@ -71,7 +71,7 @@ export const iconMap = {
 	),
 	'career development': <Image src={'./icons/career.svg'} width={30} height={30} alt={'Career development icon'} />,
 	productivity: <Image src={'./icons/productivity.svg'} width={30} height={30} alt={'Productivity icon'} />,
-	'event planning': <Image src={'./icons/eventPlanning.svg'} width={30} height={30} alt={'Event planning icon'} />,
+	'event planning': <Image src={'./icons/eventplanning.svg'} width={30} height={30} alt={'Event planning icon'} />,
 	'customer service': <Image src={'./icons/customer.svg'} width={30} height={30} alt={'Customer service icon'} />,
 	miscellaneous: <Image src={'./icons/misc.svg'} width={30} height={30} alt={'Miscellaneous icon'} />,
 };
