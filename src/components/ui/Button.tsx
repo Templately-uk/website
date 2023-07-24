@@ -4,7 +4,7 @@ import { ButtonOrLink, Props as ButtonOrLinkProps } from './ButtonOrLink';
 const buttonStyles = cva('flex items-center justify-center px-4 py-2', {
 	variants: {
 		intent: {
-			primary: 'border-black border-2 font-bold font-sans text-xs sm:text-sm md:text-base',
+			primary: 'border-black border-2 font-bold font-sans text-xs sm:text-sm md:text-base font-serif',
 		},
 		fullWidth: {
 			true: 'w-full',

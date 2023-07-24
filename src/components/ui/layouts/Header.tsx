@@ -1,7 +1,7 @@
+import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
-import Container from './Container';
 import Logo from '../Logo';
-import { UserButton, SignedIn, SignedOut } from '@clerk/nextjs';
+import Container from './Container';
 
 const Header = () => {
 	return (
@@ -26,7 +26,11 @@ const Header = () => {
 					<div className="w-1/3">
 						<div className="flex items-center justify-end gap-4">
 							<SignedIn>
-								<UserButton afterSignOutUrl="/" />
+								<UserButton
+									afterSignOutUrl="/"
+									userProfileUrl={typeof window !== 'undefined' ? `${window.location.origin}/account` : undefined}
+									userProfileMode={'navigation'}
+								/>
 							</SignedIn>
 							<SignedOut>
 								<Link href="/auth/sign-in">

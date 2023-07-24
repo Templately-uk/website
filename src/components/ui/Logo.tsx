@@ -11,7 +11,6 @@ const Logo: React.FC<Props> = ({ className }) => {
 				<MdEmail />
 			</div>
 			<div>Templately</div>
-			<div className="hidden font-sans text-xs font-light md:block opacity-70">closed-alpha</div>
 		</div>
 	);
 };

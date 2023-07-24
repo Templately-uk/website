@@ -22,13 +22,12 @@ export const useFetchComments = (templateRoute: string, auth = false) => {
 	return { isLoading, isError, data };
 };
 
-const fetchComments = async (templateRoute: string, auth = false): Promise<Response> => {
+const fetchComments = async (templateRoute: string, auth = false) => {
 	// If authenticated then use the proxy route
 	let axios = await getAxios();
 	if (auth) axios = await getAPIAxios();
 
 	const fetch = await axios.get(`/comments/${templateRoute}`);
-	return {
-		comments: fetch.data.comments,
-	};
+
+	return fetch.data.comments;
 };

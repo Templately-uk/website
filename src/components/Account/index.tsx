@@ -1,5 +1,6 @@
 import { useDeleteTemplate } from '@/hooks/useDeleteTemplate';
 import { useFetchUserProfile } from '@/hooks/useFetchUserProfile';
+import { UserProfile } from '@clerk/nextjs';
 import moment from 'moment';
 import { useRouter } from 'next/router';
 import { FiEye, FiTrash } from 'react-icons/fi';
@@ -31,7 +32,7 @@ const User = () => {
 					<PageTitle title="My account" />
 				</section>
 				<section className="mt-6">
-					<SectionTitle title="Templates" />
+					<SectionTitle title="My templates" />
 					{data ? (
 						<div className="flex flex-wrap gap-2 mt-3">
 							{data.templates.map((template, index) => (
@@ -85,10 +86,8 @@ const User = () => {
 				</section>
 				<section className="mt-20">
 					<SectionTitle title="Account" />
-					<div className="p-4 mt-2 text-black bg-red-100 border-2 border-red-200 ">
-						🔔 We&apos;re currently in our early alpha stage. For any account changes, including deletions, please
-						contact us directly at contact@templately.co.uk. We appreciate your patience and support as we continue to
-						improve and add more features to our platform.
+					<div className="mt-2">
+						<UserProfile />
 					</div>
 				</section>
 			</Container>

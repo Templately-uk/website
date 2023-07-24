@@ -11,9 +11,6 @@ const API_SECRET = process.env.API_SECRET; // The actual URL of your API
 
 if (!(API_URL && API_SECRET)) {
 	throw new Error('The API_URL and API_SECRET environment variable are required but was not specified.');
-} else {
-	console.log('API_URL:', API_URL);
-	console.log('API_SECRET:', API_SECRET);
 }
 
 export const config = {

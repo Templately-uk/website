@@ -11,7 +11,7 @@ interface Props {
 		name: string;
 		image: string;
 	};
-	createdAt: string;
+	createdAt: Date;
 	owner: boolean;
 }
 const Comment: React.FC<Props> = ({ id, user, createdAt, content, owner }) => {
@@ -28,9 +28,19 @@ const Comment: React.FC<Props> = ({ id, user, createdAt, content, owner }) => {
 					<div className="flex items-center gap-3">
 						<div className="flex items-center gap-2">
 							<div>
-								<Image width={20} height={20} src={user.image} className="w-5 h-5 rounded-full" alt={'Author avatar'} />
+								<Image
+									width={20}
+									height={20}
+									src={
+										!user || user.image === undefined || user.image === 'unknown'
+											? 'https://img.freepik.com/free-icon/user_318-644325.jpg?w=2000'
+											: user.image
+									}
+									className="w-5 h-5 rounded-full"
+									alt={'Author avatar'}
+								/>
 							</div>
-							<div>{user.name}</div>
+							<div>{user ? user.name : 'unknown'}</div>
 						</div>
 						<div className="text-black/60">{moment(createdAt).format('DD MMMM, YYYY')}</div>
 					</div>
