@@ -1,4 +1,6 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import SVGDoodle from '../../../../public/doodles/footer.svg';
 import Logo from '../Logo';
 import Container from './Container';
 
@@ -8,13 +10,16 @@ const Footer = () => {
 			<Container>
 				<div className="py-8">
 					<div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-						<div className="">
+						<div className="relative">
 							<div className="text-teal-600">
 								<Logo className="text-xl" />
 							</div>
 							<p className="max-w-xs mt-4 text-xs text-gray-500 sm:text-sm">
 								Your ultimate source for diverse email templates for personal and professional use.
 							</p>
+							<div className="absolute z-30" style={{ top: '100px', left: '0' }}>
+								<Image className="" width={60} alt="doodle" src={SVGDoodle} />
+							</div>
 						</div>
 
 						<div className="hidden grid-cols-1 gap-8 md:grid mt-30 sm:grid-cols-2 lg:col-span-2 lg:grid-cols-3">

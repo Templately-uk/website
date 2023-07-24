@@ -1,6 +1,5 @@
-import { FaMagic } from 'react-icons/fa';
 import { FaTable } from 'react-icons/fa6';
-import FieldError from '../../ui/FieldError';
+import FieldError from '../ui/FieldError';
 import CategorySelect from './CategorySelect';
 import Tags from './Tags';
 
@@ -35,14 +34,6 @@ const Sidebar: React.FC<Props> = ({ register, errors, control }) => {
 						</div>
 					</div>
 				</div>
-			</div>
-			<div className="mt-8 text-center">
-				<button className="px-4 py-2 border-4 border-black rounded">
-					<div className="flex items-center gap-2 font-serif text-base font-black">
-						<FaMagic className={'animate-pulse'} />
-						<div>Generate with AI</div>
-					</div>
-				</button>
 			</div>
 		</nav>
 	);

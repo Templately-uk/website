@@ -1,4 +1,6 @@
 import { Template } from '@/types/Template';
+import { Tone } from '@/types/Tone';
+import { transformAiTones } from '@/utils/tonesUtils';
 import moment from 'moment';
 import { AiOutlineRobot } from 'react-icons/ai';
 import { FiEye, FiUser } from 'react-icons/fi';
@@ -35,7 +37,11 @@ const SearchTemplateCard: React.FC<Props> = ({ template }) => {
 			{template.aiTones && template.aiTones.length > 0 && (
 				<div className="flex flex-wrap items-center gap-1 mt-1 font-serif">
 					<AiOutlineRobot />
-					<div className="lowercase">{template.aiTones.map((aiTone) => aiTone.name).join(', ')}</div>
+					<div className="lowercase">
+						{transformAiTones(String(template.aiTones))
+							.map((aiTone: Tone) => aiTone.name)
+							.join(', ')}
+					</div>
 				</div>
 			)}
 			<div className="flex flex-wrap items-center gap-2 mt-4">

@@ -1,4 +1,3 @@
-import { useFetchMetrics } from '@/hooks/useFetchMetrics';
 import { Categories } from '@/types/Category';
 import { capitaliseFirstLetter } from '@/utils/stringUtils';
 import { RadioGroup } from '@headlessui/react';
@@ -13,25 +12,19 @@ interface Props {
 	name: string;
 }
 const CategorySelect: React.FC<Props> = ({ name, control }) => {
-	const { data } = useFetchMetrics();
 	return (
 		<Controller
 			name={name}
 			control={control}
 			render={({ field }) => (
 				<RadioGroup value={field.value} onChange={field.onChange}>
-					{data &&
-						data.categories.map((category, index) => (
-							<RadioGroup.Option key={index} value={category.category.toLowerCase()}>
-								{({ checked }) => (
-									<Select
-										checked={checked}
-										value={category.category.toLowerCase()}
-										description={Categories[category.category]}
-									/>
-								)}
-							</RadioGroup.Option>
-						))}
+					{Object.keys(Categories).map((category, index) => (
+						<RadioGroup.Option key={index} value={category.toLowerCase()}>
+							{({ checked }) => (
+								<Select checked={checked} value={category.toLowerCase()} description={Categories[category]} />
+							)}
+						</RadioGroup.Option>
+					))}
 				</RadioGroup>
 			)}
 			rules={{

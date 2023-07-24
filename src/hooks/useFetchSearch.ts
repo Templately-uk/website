@@ -57,5 +57,5 @@ export const useSearchTemplates = (
 		options,
 	);
 
-	return { isLoading, isError, data };
+	return { data, isLoading, isError };
 };

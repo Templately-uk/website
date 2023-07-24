@@ -1,8 +1,8 @@
 import '@/styles/globals.scss';
+import { ClerkProvider } from '@clerk/nextjs';
+import { Analytics } from '@vercel/analytics/react';
 import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
-import { Analytics } from '@vercel/analytics/react';
-import { ClerkProvider } from '@clerk/nextjs';
 
 const queryClient = new QueryClient();
 
@@ -29,6 +29,9 @@ export default function App({ Component, pageProps: { ...pageProps } }: AppProps
 						borderColor: 'black',
 						borderStyle: 'solid',
 						boxShadow: 'none',
+					},
+					avatarBox: {
+						border: '2px solid black',
 					},
 				},
 			}}

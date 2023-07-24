@@ -168,7 +168,7 @@ const SearchComponent = ({ initialSearch }: Props) => {
 								) : (
 									<>
 										<div className="w-full h-[200px] bg-black/5 animate-pulse"></div>
-										<div className="w-full h-[200px] bg-black/5 animate-pulse mt-1"></div>
+										<div className="w-full h-[200px] bg-black/5 animate-pulse mt-2"></div>
 									</>
 								)}
 

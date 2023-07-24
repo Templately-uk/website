@@ -2,7 +2,7 @@ import { useFetchTags } from '@/hooks/useFetchTags';
 import React from 'react';
 import { Controller } from 'react-hook-form';
 import { WithContext as ReactTags } from 'react-tag-input';
-import styles from '../../../styles/tags.module.scss';
+import styles from '../../styles/tags.module.scss';
 
 interface Props {
 	name: string;

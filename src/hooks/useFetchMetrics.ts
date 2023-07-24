@@ -1,4 +1,5 @@
 import { getAxios } from '@/lib/axios';
+import { useMemo } from 'react';
 import { useQuery } from 'react-query';
 
 export interface Response {
@@ -13,7 +14,16 @@ interface CategoryResponse {
 
 export const useFetchMetrics = () => {
 	const options = {};
-	const { isLoading, isError, data } = useQuery(['metrics'], () => fetchMetrics(), options);
+	const { isLoading, isError, data: fetchedData } = useQuery(['metrics'], () => fetchMetrics(), options);
+
+	const data = useMemo(() => {
+		// Convert the categories array into an object
+		const categories = fetchedData?.categories.reduce((acc, curr) => {
+			acc[curr.category] = curr.count;
+			return acc;
+		}, {});
+		return { ...fetchedData, categories };
+	}, [fetchedData]);
 
 	return { isLoading, isError, data };
 };

@@ -1,16 +1,17 @@
+import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import SearchBtn from './SearchBtn';
 import SearchInput from './SearchInput';
-import { SubmitHandler, useForm } from 'react-hook-form';
-import { useRouter } from 'next/router';
 
 interface Props {
 	initialSearch?: string;
+	frontPage?: boolean;
 }
 interface Inputs {
 	terms: string;
 }
-const Search: React.FC<Props> = ({ initialSearch }) => {
+const Search: React.FC<Props> = ({ initialSearch, frontPage = false }) => {
 	const router = useRouter();
 
 	const { register, handleSubmit } = useForm<Inputs>({
@@ -35,7 +36,7 @@ const Search: React.FC<Props> = ({ initialSearch }) => {
 					</div>
 				</div>
 			</div>
-			<SearchBtn loading={loading} />
+			<SearchBtn frontPage={frontPage} loading={loading} />
 		</form>
 	);
 };

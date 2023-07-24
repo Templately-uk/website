@@ -1,4 +1,4 @@
-import Publish from '@/components/User/Publish';
+import Publish from '@/components/Publish';
 import { buildClerkProps, getAuth } from '@clerk/nextjs/server';
 import { GetServerSidePropsContext } from 'next';
 
