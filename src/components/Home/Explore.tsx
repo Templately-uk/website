@@ -16,7 +16,9 @@ const Explore: React.FC = () => {
 				<div>
 					<div className="w-full text-3xl md:text-5xl font-black md:w-[600px] flex flex-wrap gap-2 mb-2">
 						<div>Explore from</div>
-						<div>{metrics && <CountUp start={0} end={metrics.templates} duration={2.75} />}</div>
+						<div>
+							{metrics && <CountUp start={0} end={metrics.templates ? metrics.templates : 0} duration={2.75} />}
+						</div>
 						<div>templates</div>
 					</div>
 				</div>
