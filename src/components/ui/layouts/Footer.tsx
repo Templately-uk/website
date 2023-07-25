@@ -51,23 +51,23 @@ const Footer = () => {
 								<p className="font-serif font-bold text-gray-900">Templates</p>
 								<ul className="mt-6 space-y-4 text-xs sm:text-sm">
 									<li>
-										<Link href="/">
+										<Link href="/search?category=professional">
 											<div className="text-gray-700 transition hover:opacity-75">Professional</div>
 										</Link>
 									</li>
 									<li>
-										<Link href="/">
+										<Link href="/search?category=personal">
 											<div className="text-gray-700 transition hover:opacity-75">Personal</div>
 										</Link>
 									</li>
 									<li>
-										<Link href="/">
+										<Link href="/search?category=sales%20and%20marketing">
 											<div className="text-gray-700 transition hover:opacity-75">Sales</div>
 										</Link>
 									</li>
 									<li>
-										<Link href="/">
-											<div className="text-gray-700 transition hover:opacity-75">Marketing</div>
+										<Link href="/search?category=career%20development">
+											<div className="text-gray-700 transition hover:opacity-75">Career</div>
 										</Link>
 									</li>
 								</ul>
@@ -78,19 +78,19 @@ const Footer = () => {
 
 								<ul className="mt-6 space-y-4 text-xs sm:text-sm">
 									<li>
-										<Link href="/">
+										<Link href="/legal/privacy">
 											<div className="text-gray-700 transition hover:opacity-75">Privacy Policy</div>
 										</Link>
 									</li>
 
 									<li>
-										<Link href="/">
+										<Link href="/legal/conditions">
 											<div className="text-gray-700 transition hover:opacity-75">Terms and Conditions</div>
 										</Link>
 									</li>
 
 									<li>
-										<Link href="/">
+										<Link href="/legal/cookie">
 											<div className="text-gray-700 transition hover:opacity-75">Cookie Policy</div>
 										</Link>
 									</li>

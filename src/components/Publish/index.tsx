@@ -92,6 +92,9 @@ const Publish = () => {
 												validate: (value) => (!filter.isProfane(value) ? true : 'Title contains offensive language'),
 											})}
 										/>
+										<div className="mt-1 text-xs text-gray-800">
+											Name your template, e.g. &apos;Resignation Letter&apos;. Keep it clear and concise.
+										</div>
 										{errors?.title?.type === 'required' && <FieldError error={'Title is required'} />}
 										{errors?.title?.type === 'minLength' && (
 											<FieldError error={'Title must be longer than 6 characters'} />
@@ -112,6 +115,10 @@ const Publish = () => {
 												validate: (value) => (!filter.isProfane(value) ? true : 'Usecase contains offensive language'),
 											})}
 										/>
+										<div className="text-xs text-gray-800">
+											Describe when and in what context this template should be used. For example, &apos;To formally
+											resign from a role and communicate it to your manager&apos;
+										</div>
 										{errors?.usecase?.type === 'required' && <FieldError error={'Usecase is required'} />}
 										{errors?.usecase?.type === 'minLength' && (
 											<FieldError error={'Usecase must be longer than 32 characters'} />
@@ -122,40 +129,34 @@ const Publish = () => {
 										{errors?.usecase?.message && <FieldError error={String(errors.usecase.message)} />}
 									</div>
 								</section>
-
-								{/* Submit section */}
-								<section className="mt-20">
-									<SectionTitle title="Submit" />
-									<SubText>Press the &apos;submit template&apos; to upload the template to our systems</SubText>
-									<div className="mt-4">
-										<Button
-											type={'submit'}
-											className="font-bold shadow-[-3px_3px_0_0_#000] px-4 py-2 bg-white border-2 border-black"
-										>
-											<div className="flex items-center gap-1">
-												{loading ? (
-													<div className="animate-spin">
-														<FiLoader />
-													</div>
-												) : (
-													<>
-														{isValid && (
-															<div className="">
-																<TiTick />
-															</div>
-														)}
-													</>
-												)}
-												<div>Submit template</div>
-											</div>
-										</Button>
-									</div>
-								</section>
 							</div>
 						</div>
 						{/* Sidebar */}
-						<div className="flex items-start justify-center col-span-12 sm:justify-end md:col-span-4 mt-14">
+						<div className="col-span-12 ml-auto sm:justify-end md:col-span-4 mt-14">
 							<Sidebar register={register} errors={errors} control={control} />
+							<div className="flex justify-center mt-8">
+								<Button
+									type={'submit'}
+									className="font-bold shadow-[-3px_3px_0_0_#000] px-4 py-2 bg-white border-2 border-black"
+								>
+									<div className="flex items-center gap-1">
+										{loading ? (
+											<div className="animate-spin">
+												<FiLoader />
+											</div>
+										) : (
+											<>
+												{isValid && (
+													<div className="">
+														<TiTick />
+													</div>
+												)}
+											</>
+										)}
+										<div>Submit template</div>
+									</div>
+								</Button>
+							</div>
 						</div>
 					</div>
 				</form>

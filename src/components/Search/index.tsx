@@ -15,7 +15,7 @@ import SearchTemplateCard from './SearchTemplateCard';
 const sorts = [
 	{ name: 'Most recent', sort: 'createdAt', order: 'desc' },
 	{ name: 'Most popular', sort: 'views', order: 'desc' },
-	{ name: 'Highest rated', sort: 'votes', order: 'desc' },
+	// { name: 'Highest rated', sort: 'votes', order: 'desc' },
 	{ name: 'Least recent', sort: 'createdAt', order: 'asc' },
 ];
 

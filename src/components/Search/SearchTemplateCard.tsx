@@ -19,7 +19,7 @@ const SearchTemplateCard: React.FC<Props> = ({ template }) => {
 					<div>•</div>
 					<div className="capitalize">{template.category}</div>
 				</div>
-				<div className="text-gray-600">{moment(template.createdAt).format('MMM YY')}</div>
+				<div className="text-gray-600">{moment(template.createdAt).format('DD MMM YY')}</div>
 			</div>
 			<div className="w-1/2 overflow-auto text-gray-600">
 				<div className="w-full">{preview}</div>

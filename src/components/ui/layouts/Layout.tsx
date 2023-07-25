@@ -1,9 +1,10 @@
 import { NextSeo } from 'next-seo';
-import Header from './Header';
-import { Inter, Bitter } from 'next/font/google';
-import Footer from './Footer';
-import { Toaster } from 'react-hot-toast';
+import { Bitter, Inter } from 'next/font/google';
 import Head from 'next/head';
+import CookieConsent from 'react-cookie-consent';
+import { Toaster } from 'react-hot-toast';
+import Footer from './Footer';
+import Header from './Header';
 
 const inter = Inter({
 	subsets: ['latin'],
@@ -34,6 +35,9 @@ const Layout: React.FC<Props> = ({ title, children, description, onlyMain = fals
 				{!onlyMain && <Header />}
 				<main className="text-sm sm:text-base md:text-lg">{children}</main>
 				{!onlyMain && <Footer />}
+				<CookieConsent style={{ background: 'black' }} buttonStyle={{ background: 'white' }}>
+					This website uses cookies to enhance the user experience.
+				</CookieConsent>
 			</div>
 			<style jsx global>
 				{`
