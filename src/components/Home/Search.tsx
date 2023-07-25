@@ -1,5 +1,6 @@
 import { SignedIn } from '@clerk/nextjs';
 import Link from 'next/link';
+import { FaPencil } from 'react-icons/fa6';
 import Search from '../Search/Search';
 import { Button } from '../ui/Button';
 
@@ -13,8 +14,11 @@ const SearchComponent: React.FC = () => {
 						<div className="flex justify-center mt-8 text-sm">
 							<div className="relative">
 								<Link href="/account/publish">
-									<Button className="px-3 py-2 font-serif font-bold text-black border-2 border-black">
-										Publish your own
+									<Button className="flex items-center gap-1 px-3 py-2 font-serif font-bold text-black border-2 border-black">
+										<div>
+											<FaPencil />
+										</div>
+										<div>Publish your own</div>
 									</Button>
 								</Link>
 							</div>

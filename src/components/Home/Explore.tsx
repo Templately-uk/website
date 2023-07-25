@@ -12,9 +12,9 @@ const Explore: React.FC = () => {
 	const { data: metrics } = useFetchMetrics();
 	return (
 		<div className="mt-32">
-			<div className="flex flex-wrap items-center justify-between">
-				<div>
-					<div className="w-full text-3xl md:text-5xl font-black md:w-[600px] flex flex-wrap gap-2 mb-2">
+			<div className="grid grid-cols-12">
+				<div className="col-span-8">
+					<div className="flex flex-wrap gap-2 mb-2 text-3xl font-black md:text-5xl">
 						<div>Explore from</div>
 						<div>
 							{metrics && <CountUp start={0} end={metrics.templates ? metrics.templates : 0} duration={2.75} />}
@@ -22,9 +22,11 @@ const Explore: React.FC = () => {
 						<div>templates</div>
 					</div>
 				</div>
-				<Link href="/search">
-					<Button>View all templates</Button>
-				</Link>
+				<div className="flex items-end justify-end col-span-4">
+					<Link href="/search">
+						<Button>View all templates</Button>
+					</Link>
+				</div>
 			</div>
 			<div className="mt-6">
 				<div className="relative">
