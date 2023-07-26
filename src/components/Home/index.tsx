@@ -4,7 +4,7 @@ import Explore from './Explore';
 import Jumbotron from './Jumbotron';
 import Search from './Search';
 
-const Home = () => {
+const Home: React.FC = () => {
 	return (
 		<Layout
 			title={'Templately.co.uk'}

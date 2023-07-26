@@ -10,10 +10,11 @@ import { Button } from '../ui/Button';
 const Explore: React.FC = () => {
 	// Fetch the categories and counts templates submitted for categories
 	const { data: metrics } = useFetchMetrics();
+
 	return (
 		<div className="mt-32">
 			<div className="grid grid-cols-12">
-				<div className="col-span-8">
+				<div className="col-span-12 sm:col-span-8">
 					<div className="flex flex-wrap gap-2 mb-2 text-3xl font-black md:text-5xl">
 						<div>Explore from</div>
 						<div>
@@ -22,7 +23,7 @@ const Explore: React.FC = () => {
 						<div>templates</div>
 					</div>
 				</div>
-				<div className="flex items-end justify-end col-span-4">
+				<div className="flex items-end justify-end col-span-12 sm:col-span-4">
 					<Link href="/search">
 						<Button>View all templates</Button>
 					</Link>
@@ -30,28 +31,15 @@ const Explore: React.FC = () => {
 			</div>
 			<div className="mt-6">
 				<div className="relative">
-					<div className="relative z-30 grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-6">
-						{metrics.categories ? (
-							<>
-								{Object.keys(Categories).map((category, index) => (
-									<ExploreCard
-										desc={Categories[category]}
-										count={metrics.categories ? metrics.categories[category] : 0}
-										name={category}
-										key={index}
-									/>
-								))}
-							</>
-						) : (
-							<>
-								<div className="w-full h-44 bg-black/10 animate-pulse"></div>
-								<div className="w-full h-44 bg-black/10 animate-pulse"></div>
-								<div className="w-full h-44 bg-black/10 animate-pulse"></div>
-								<div className="w-full h-44 bg-black/10 animate-pulse"></div>
-								<div className="w-full h-44 bg-black/10 animate-pulse"></div>
-								<div className="w-full h-44 bg-black/10 animate-pulse"></div>
-							</>
-						)}
+					<div className="relative z-30 grid w-full grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-4 sm:gap-y-6">
+						{Object.keys(Categories).map((category, index) => (
+							<ExploreCard
+								desc={Categories[category]}
+								count={metrics.categories ? metrics.categories[category] : '-'}
+								name={category}
+								key={index}
+							/>
+						))}
 					</div>
 					<div>
 						<div className="absolute z-0" style={{ top: '705px', right: '-50px' }}>
@@ -77,7 +65,7 @@ export const iconMap = {
 	'customer service': <Image src={'./icons/customer.svg'} width={30} height={30} alt={'Customer service icon'} />,
 	miscellaneous: <Image src={'./icons/misc.svg'} width={30} height={30} alt={'Miscellaneous icon'} />,
 };
-const ExploreCard = ({ count, name, desc }: { count: number; name: string; desc: string }) => {
+const ExploreCard = ({ count, name, desc }: { count: string; name: string; desc: string }) => {
 	const IconComponent = iconMap[`${name}`]; // Get the icon based on the category name
 	return (
 		<Link href={`/search/?category=${name}`}>
@@ -89,7 +77,7 @@ const ExploreCard = ({ count, name, desc }: { count: number; name: string; desc:
 				<div className="mt-2 font-serif text-lg font-black">
 					{count} {name} templates
 				</div>
-				<div className="mt-2 overflow-hidden h-[110px]">{desc}</div>
+				<div className="mt-2 overflow-hidden h-[65px] sm:h-[110px]">{desc}</div>
 			</div>
 		</Link>
 	);

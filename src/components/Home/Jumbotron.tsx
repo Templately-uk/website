@@ -15,7 +15,7 @@ const Jumbotron: React.FC = () => {
 				</div>
 			</div>
 
-			<div className="absolute z-0" style={{ top: '205px', left: '40px' }}>
+			<div className="absolute z-0 top-[235px] left-[40px] sm:top-[205px] sm:left-[40px]">
 				<Image width={50} alt="doodle" src={Circle} />
 			</div>
 		</div>
