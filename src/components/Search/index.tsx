@@ -26,7 +26,7 @@ const SearchComponent = ({ initialSearch }: Props) => {
 	const router = useRouter();
 
 	const [offset, setOffset] = useState(0);
-	const [limit] = useState(12);
+	const [limit] = useState(6);
 
 	// Search filters and sorting
 	const initialCategory = router.query.category as string;

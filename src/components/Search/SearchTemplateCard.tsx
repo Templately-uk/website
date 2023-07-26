@@ -21,7 +21,7 @@ const SearchTemplateCard: React.FC<Props> = ({ template }) => {
 				</div>
 				<div className="text-gray-600">{moment(template.createdAt).format('DD MMM YY')}</div>
 			</div>
-			<div className="w-1/2 overflow-auto text-gray-600">
+			<div className="w-full overflow-auto text-gray-600 sm:w-2/3">
 				<div className="w-full">{preview}</div>
 			</div>
 			<div className="flex flex-wrap items-center gap-2 mt-3 md:gap-4">

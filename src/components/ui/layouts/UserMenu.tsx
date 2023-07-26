@@ -1,13 +1,7 @@
 import { Menu } from '@headlessui/react';
-import { FaCaretDown } from 'react-icons/fa';
-import Image from 'next/image';
-import { FC } from 'react';
 import { useRouter } from 'next/router';
-
-interface User {
-	name: string;
-	image: string;
-}
+import { FC } from 'react';
+import { FaCaretDown } from 'react-icons/fa';
 
 interface Link {
 	label: string;
@@ -16,11 +10,10 @@ interface Link {
 }
 
 interface UserMenuProps {
-	user: User;
 	menuLinks: Link[];
 }
 
-const UserMenu: FC<UserMenuProps> = ({ user, menuLinks }) => {
+const UserMenu: FC<UserMenuProps> = ({ menuLinks }) => {
 	const router = useRouter();
 
 	const handleLinkClick = (link: Link) => {
@@ -36,14 +29,13 @@ const UserMenu: FC<UserMenuProps> = ({ user, menuLinks }) => {
 		<Menu>
 			{({ open }) => (
 				<div className="relative">
-					<Menu.Button className="flex items-center gap-2 px-2 py-1 text-xs bg-white border-2 border-black sm:text-sm">
-						<Image width={16} height={16} src={user.image} className="w-5 h-5 rounded-full" alt="User image" />
-						<div className="font-serif font-semibold">{user.name}</div>
+					<Menu.Button className="flex items-center gap-1 px-2 py-1 text-xs bg-white border-2 border-black sm:text-sm">
+						<div className="font-serif font-semibold">Menu</div>
 						<FaCaretDown />
 					</Menu.Button>
 					{open && (
-						<Menu.Items className="absolute right-0 z-30 w-56 mt-2 font-sans origin-top-right bg-white border-2 border-black divide-y divide-gray-100 ring-1 ring-black ring-opacity-5 focus:outline-none">
-							<div className="py-1">
+						<Menu.Items className="absolute right-0 z-50 w-56 mt-2 font-sans origin-top-right bg-white border-2 border-black divide-y divide-gray-100 ring-1 ring-black ring-opacity-5 focus:outline-none">
+							<div className="relative py-1">
 								{menuLinks.map((link, index) => (
 									<Menu.Item key={index}>
 										{({ active }) => (

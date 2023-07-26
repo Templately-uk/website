@@ -1,6 +1,5 @@
 import { useDeleteTemplate } from '@/hooks/useDeleteTemplate';
 import { useFetchUserProfile } from '@/hooks/useFetchUserProfile';
-import { UserProfile } from '@clerk/nextjs';
 import moment from 'moment';
 import { useRouter } from 'next/router';
 import { FiEye, FiTrash } from 'react-icons/fi';
@@ -83,12 +82,6 @@ const User = () => {
 							<div className="h-44 mt-2 w-[500px] bg-black/10 animate-pulse"></div>
 						</div>
 					)}
-				</section>
-				<section className="mt-20">
-					<SectionTitle title="Account" />
-					<div className="mt-2">
-						<UserProfile />
-					</div>
 				</section>
 			</Container>
 		</Layout>

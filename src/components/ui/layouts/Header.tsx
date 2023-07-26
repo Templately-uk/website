@@ -2,6 +2,7 @@ import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 import Link from 'next/link';
 import Logo from '../Logo';
 import Container from './Container';
+import UserMenu from './UserMenu';
 
 const Header = () => {
 	return (
@@ -24,13 +25,21 @@ const Header = () => {
 						</div>
 					</div>
 					<div className="w-1/3">
-						<div className="flex items-center justify-end gap-4">
+						<div className="flex items-center justify-end gap-2">
 							<SignedIn>
-								<UserButton
-									afterSignOutUrl="/"
-									userProfileUrl={typeof window !== 'undefined' ? `${window.location.origin}/account` : undefined}
-									userProfileMode={'navigation'}
+								<UserMenu
+									menuLinks={[
+										{
+											label: 'My templates',
+											redirect: '/account',
+										},
+										{
+											label: 'Publish template',
+											redirect: '/account/publish',
+										},
+									]}
 								/>
+								<UserButton afterSignOutUrl="/" />
 							</SignedIn>
 							<SignedOut>
 								<Link href="/auth/sign-in">

@@ -14,4 +14,5 @@ export interface Template {
 	tags: Tag[];
 	views: number;
 	createdAt: Date;
+	reviewed: boolean;
 }

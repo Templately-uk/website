@@ -14,7 +14,7 @@ import SideDialog from './SideDialog';
 import ToneProgress from './ToneProgress';
 
 // Importing hooks
-import { useFetchTemplate } from '@/hooks/useFetchTemplate';
+import { Template } from '@/types/Template';
 import { FiLoader } from 'react-icons/fi';
 import GoBackButton from '../ui/GoBackButton';
 
@@ -22,18 +22,17 @@ const PreviewTemplate = dynamic(() => import('./PreviewTemplate'), { ssr: false 
 
 interface Props {
 	route: string;
+	template: Template;
 }
-const Template = ({ route }: Props) => {
-	const { data } = useFetchTemplate(route);
-
-	let useCase = data?.useCase;
+const TemplateComponent = ({ template }: Props) => {
+	let useCase = template.useCase;
 	if (useCase && !useCase.endsWith('.')) useCase += '.';
 	return (
 		<Layout
-			title={`Template: ${data?.title}`}
+			title={`Template: ${template.title}`}
 			openGraph={{
-				title: `Template: ${data?.title}`,
-				description: `Template: ${data?.useCase}`,
+				title: `Template: ${template.title}`,
+				description: `Template: ${template.useCase}`,
 				type: 'website',
 			}}
 		>
@@ -42,15 +41,21 @@ const Template = ({ route }: Props) => {
 					<div className="col-span-12 mt-20 sm:col-span-8">
 						<GoBackButton />
 						<div className="mt-6">
-							<TitleSection title={data?.title} />
+							{!template.reviewed && (
+								<div className="p-4 mb-4 text-sm text-black bg-red-300 border-2 border-red-600">
+									Pending Review: This template is currently in queue for moderation and will be visible in search once
+									reviewed and approved.
+								</div>
+							)}
+							<TitleSection title={template.title} />
 							<UseCaseSection usecase={useCase} />
-							<TemplateSection template={data?.template} />
-							<AITonesSection aiTones={data?.aiTones} />
-							<CommentsSection route={data?.route} />
+							<TemplateSection template={template.template} />
+							<AITonesSection aiTones={template.aiTones} />
+							<CommentsSection route={template.route} />
 						</div>
 					</div>
 					<div className="flex items-start justify-center col-span-12 sm:justify-end sm:col-span-4 mt-14">
-						<SideDialog data={data} />
+						<SideDialog data={template} />
 					</div>
 				</div>
 			</Container>
@@ -153,4 +158,4 @@ const UseCaseSection = ({ usecase }: { usecase: string | undefined }) => {
 	);
 };
 
-export default Template;
+export default TemplateComponent;

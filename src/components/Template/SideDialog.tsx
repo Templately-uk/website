@@ -1,15 +1,43 @@
 import { Template } from '@/types/Template';
+import copy from 'copy-to-clipboard';
 import moment from 'moment';
 import Image from 'next/image';
+import { toast } from 'react-hot-toast';
 import { BsFillChatRightFill } from 'react-icons/bs';
 import SVGDoodle from '../../../public/doodles/template.svg';
 import CopyTemplateBtn from './CopyTemplateBtn';
 
 interface Props {
-	data?: Template;
+	data: Template;
 }
 const SideDialog: React.FC<Props> = ({ data }) => {
 	const ready = data;
+	const onCopy = () => {
+		if (!data.template) return;
+
+		// Convert HTML into plain text, maintaining line breaks
+		const temporaryDiv = document.createElement('div');
+		temporaryDiv.innerHTML = data.template;
+		let textTemplate = '';
+		for (const node of Array.from(temporaryDiv.childNodes)) {
+			if (node.nodeName === 'P') {
+				textTemplate += node.textContent + '\n';
+			}
+		}
+		temporaryDiv.remove();
+
+		// Copy template to clipboard
+		copy(textTemplate, {
+			format: 'text/plain',
+		});
+		toast.success(`Template copied to clipboard`, {
+			style: {
+				border: '2px solid black',
+				borderRadius: '0',
+			},
+			position: 'top-right',
+		});
+	};
 	return (
 		<div>
 			<div className="relative">
@@ -29,7 +57,7 @@ const SideDialog: React.FC<Props> = ({ data }) => {
 						)}
 					</div>
 					<div className="flex justify-center mt-6">
-						<CopyTemplateBtn />
+						<CopyTemplateBtn onClick={onCopy} />
 					</div>
 					<div className="pt-2 text-base">
 						<div className="mt-6">

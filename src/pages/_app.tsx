@@ -11,6 +11,11 @@ export default function App({ Component, pageProps: { ...pageProps } }: AppProps
 		<ClerkProvider
 			{...pageProps}
 			appearance={{
+				layout: {
+					privacyPageUrl: 'https://templately.co.uk/legal/privacy',
+					termsPageUrl: 'https://templately.co.uk/legal/conditions',
+					logoImageUrl: '/logo.png',
+				},
 				variables: {
 					colorPrimary: 'black',
 					fontFamily: 'Inter',
@@ -18,6 +23,10 @@ export default function App({ Component, pageProps: { ...pageProps } }: AppProps
 					borderRadius: '0px',
 				},
 				elements: {
+					logoImage: {
+						height: '45px',
+					},
+					logoBox: {},
 					card: {
 						borderWidth: '2px',
 						borderColor: 'black',
