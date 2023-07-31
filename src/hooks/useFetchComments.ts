@@ -29,5 +29,5 @@ const fetchComments = async (templateRoute: string, auth = false) => {
 
 	const fetch = await axios.get(`/comments/${templateRoute}`);
 
-	return fetch.data.comments;
+	return fetch.data;
 };

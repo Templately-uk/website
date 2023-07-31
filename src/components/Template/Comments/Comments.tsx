@@ -7,8 +7,8 @@ interface Props {
 	route: string;
 }
 const Comments: React.FC<Props> = ({ route }) => {
-	const { sessionId } = useAuth();
-	const { data } = useFetchComments(route, sessionId !== null);
+	const { userId } = useAuth();
+	const { data } = useFetchComments(route, userId !== null ? true:false);
 	return (
 		<div>
 			<div className="mt-4">

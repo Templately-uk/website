@@ -51,7 +51,7 @@ const TemplateComponent = ({ template }: Props) => {
 							<UseCaseSection usecase={useCase} />
 							<TemplateSection template={template.template} />
 							<AITonesSection aiTones={template.aiTones} />
-							<CommentsSection route={template.route} />
+							{/* <CommentsSection route={template.route} /> */}
 						</div>
 					</div>
 					<div className="flex items-start justify-center col-span-12 sm:justify-end sm:col-span-4 mt-14">

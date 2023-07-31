@@ -7,4 +7,5 @@ export default authMiddleware({});
 
 export const config = {
 	matcher: ['/user/(.*)', '/(api|trpc)(.*)'],
+	ignoredRoutes: ['/api/proxy/comments/*']
 };
